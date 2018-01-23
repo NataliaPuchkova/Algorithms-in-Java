@@ -1,4 +1,10 @@
 // This example of code shows the situation when if (a==1 && a==2 && a==3) is true in Java
+//
+// In Java we can achieve the same result using multiple threads.
+//
+// Without volatile key word the compiler is allowed to cache a variable or replace the if statement with if(false). 
+// With volatile key word you will get Success always.
+
 public class ReturnTrue{      
        private volatile int a;
 
