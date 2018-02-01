@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+// Rotate for k steps : Memory O(1) and time O(n) 
+
 class ArrayRotation{
         public static void rotate(int[] arr, int k){
                 if (k<=0) throw new IllegalArgumentException();
