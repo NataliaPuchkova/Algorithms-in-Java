@@ -35,45 +35,42 @@ For example, given: start = "hit", end = "cog", and dict = ["hot","dot","dog","l
                                         ArrayList<String> list = new ArrayList<String>();
                                         list.add(start);
                                         list.add(builder.toString());
-                                        int k = getPaths( builder.toString(), end, dict,list);
-                                        if (k==100){
-                                                list.add(end);
-                                                result.add(list);
-                                        }
+                                        getPaths( builder.toString(), end, dict,list, result);
                                 }
                         }
                 }
                 return result;
         }
 
-        public static int  getPaths(String start, String end, ArrayList<String> dict, ArrayList<String> list){
+        public static void getPaths(String start, String end, ArrayList<String> dict, ArrayList<String> list, ArrayList<ArrayList<String>> result){
+                ArrayList<String> list1 = new ArrayList<String>();
                 StringBuilder str = new StringBuilder(start);
                 for(char ch='a'; ch<='z'; ch++){
                         for(int i = 0; i<start.length(); i++){
                                 StringBuilder builder = new StringBuilder(str);
                                 builder.setCharAt(i,ch);
-                                if (builder.toString().equals(end)) return 100;
+                                if (builder.toString().equals(end)){ list.add(end); if (list.contains(end)) result.add(list);}
                                 if (dict.contains(builder.toString()) && !list.contains(builder.toString())){
-                                        list.add(builder.toString());
-                                        //System.out.println(Arrays.toString(list.toArray()));
-                                        return getPaths( builder.toString(), end, dict,list);
+                                        list1 = new ArrayList<String>(list);
+                                        list1.add(builder.toString());
+                                        getPaths( builder.toString(), end, dict,list1, result);
                                 }
                         }
                 }
-                return 0;
         }
 
-        public static void main(String...arg){
-                String[] ar = {"hot","dot","dog","lot","log"};
-                ArrayList<String> arr = new ArrayList(Arrays.asList(ar));
-                ArrayList<ArrayList<String>> list = getPaths("hit", "cog", arr);
-                for(ArrayList<String> ll : list){
-                        for(String str: ll){
-                                System.out.print(str+",");
-                        }
-                        System.out.println();
+         public static ArrayList<ArrayList<String>> getPaths(ArrayList<ArrayList<String>> list){
+                ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+                int size = Integer.MAX_VALUE;
+                for(ArrayList<String> itemList: list){
+                        if (itemList.size()<size) size = itemList.size();
                 }
+                for(ArrayList<String> itemList: list){
+                        if (itemList.size()==size) result.add(itemList);
+                }
+                return result;
 
         }
+
 
 }
