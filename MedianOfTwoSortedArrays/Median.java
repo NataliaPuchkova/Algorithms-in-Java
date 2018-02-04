@@ -1,5 +1,7 @@
 class Median{
-/* This problem can be converted to the problem of finding kth element, k is (A's length + B' Length)/2.
+/* Median of two sorted arrays
+
+This problem can be converted to the problem of finding kth element, k is (A's length + B' Length)/2.
 
 If any of the two arrays is empty, then the kth element is the non-empty array's kth element. If k == 0, the kth element is the first element of A or B.
 
