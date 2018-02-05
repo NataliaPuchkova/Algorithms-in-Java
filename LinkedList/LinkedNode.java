@@ -1,7 +1,7 @@
 class LinkedNode{
-        LinkedList next;
+       LinkedNode next;
         int value;
-        LinkedNode(LinkedList next, int value){
+        LinkedNode(LinkedNode next, int value){
                 this.next = next;
                 this.value = value;
         }
