@@ -16,4 +16,23 @@ class LinkedList{
                 if (node==null) return 0;
                 else return count(node.next)+1;
         }
+     public static LinkedNode getNth(LinkedList node, int k){
+                if (k==0) return node;
+                if (node==null) return null;
+                return getNth(node.next, k-1);
+        }
+   public static LinkedNode getNthfromEnd(LinkedList node, int k){
+                LinkedNode tmp = node;
+                LinkedNode tmp2 = node;
+                while (k!=0){
+                        if (tmp1.next==null) return null;
+                        tmp1 = tmp1.next;
+                        k--;
+                }
+                while(tmp1.next!=null){
+                        tmp1 = tmp1.next;
+                        tmp2 = tmp2.next;
+                }
+                return tmp2;
+        }
 }
