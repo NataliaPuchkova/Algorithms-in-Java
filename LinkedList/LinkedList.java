@@ -42,5 +42,14 @@ class LinkedList{
                 node=null;
                 deleteList(tmp);
         }
+public static int pop(LinkedList head){
+                if (head==null) return -1;
+                LinkedList tmp = head;
+                int value= head.value;
+                head = head.next;
+                tmp = null;
+                return value;
+
+        }
 
 }
