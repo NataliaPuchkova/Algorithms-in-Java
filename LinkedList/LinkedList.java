@@ -51,5 +51,19 @@ public static int pop(LinkedList head){
                 return value;
 
         }
+   public LinkedNode InsertNth(LinkedList head, int value, int n){
+                if (head==null) return null;
+                LinkedList prev = head;
+                LinkedList tmp = head.next;
+                while(n!=0){
+                        if (tmp==null) return null;
+                        prev = tmp;
+                        tmp = tmp.next;
+                        n--;
+                }
+                tmp = new LinkedList(tmp, value);
+                prev.next = tmp;
+                return tmp;
+        }
 
 }
