@@ -12,4 +12,8 @@ class LinkedList{
                         search(tmp, value);
                 }
         }
+    public static int count(LinkedNode node){
+                if (node==null) return 0;
+                else return count(node.next)+1;
+        }
 }
