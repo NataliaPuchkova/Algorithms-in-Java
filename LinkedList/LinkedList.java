@@ -36,5 +36,11 @@ class LinkedList{
                 }
                 return tmp2;
         }
+   public static void deleteList(LinkedNode node){
+                if (node==null) return;
+                LinkedList tmp = node.next;
+                node=null;
+                deleteList(tmp);
+        }
 
 }
