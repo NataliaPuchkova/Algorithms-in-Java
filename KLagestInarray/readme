@@ -1,3 +1,5 @@
-peek() - return but doesn't remove head value
-poll() - return and remove head value
+The java.util.PriorityQueue class is an unbounded priority queue based on a priority heap.Following are the important points about PriorityQueue:The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.A priority queue does not permit null elements.A priority queue relying on natural ordering also does not permit insertion of non-comparable objects.
+
+peek() or element() - return but doesn't remove head value
+poll() or remove() - return and remove head value
 offer() - add 
