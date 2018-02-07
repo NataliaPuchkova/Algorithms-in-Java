@@ -1,0 +1,3 @@
+peek() - return but doesn't remove head value
+poll() - return and remove head value
+offer() - add 
