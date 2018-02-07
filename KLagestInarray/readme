@@ -1,5 +1,69 @@
-The java.util.PriorityQueue class is an unbounded priority queue based on a priority heap.Following are the important points about PriorityQueue:The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.A priority queue does not permit null elements.A priority queue relying on natural ordering also does not permit insertion of non-comparable objects.
+The java.util.PriorityQueue class is an unbounded priority queue based on a priority heap.
+Following are the important points about PriorityQueue:The elements of the priority queue are ordered according to their 
+natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.
+
+    PriorityQueue doesn’t allow null
+    We can’t create PriorityQueue of Objects that are non-comparable
+    The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used.
+    The head of this queue is the least element with respect to the specified ordering. If multiple elements are tied for least value, the head is one of those elements — ties are broken arbitrarily.
+    The queue retrieval operations poll, remove, peek, and element access the element at the head of the queue.
+    It inherits methods from AbstractQueue, AbstractCollection, Collection and Object class.
+
 
 peek() or element() - return but doesn't remove head value
 poll() or remove() - return and remove head value
-offer() - add 
+offer() or add() - add 
+PriorityQueue(int initialCapacity, Comparator<? super E> comparator)
+
+// Test.java
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        Comparator<String> comparator = new StringLengthComparator();
+        PriorityQueue<String> queue = 
+            new PriorityQueue<String>(10, comparator);
+        queue.add("short");
+        queue.add("very long indeed");
+        queue.add("medium");
+        while (queue.size() != 0)
+        {
+            System.out.println(queue.remove());
+        }
+    }
+}
+
+// StringLengthComparator.java
+import java.util.Comparator;
+
+public class StringLengthComparator implements Comparator<String>
+{
+    @Override
+    public int compare(String x, String y)
+    {
+        // Assume neither string is null. Real code should
+        // probably be more robust
+        // You could also just return x.length() - y.length(),
+        // which would be more efficient.
+        if (x.length() < y.length())
+        {
+            return -1;
+        }
+        if (x.length() > y.length())
+        {
+            return 1;
+        }
+        return 0;
+    }
+}
+
+Here is the output:
+
+    short
+
+    medium
+
+    very long indeed
