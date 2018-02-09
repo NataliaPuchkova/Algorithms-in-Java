@@ -59,6 +59,7 @@ class Tree{
         }
         
          public static boolean DFS(TreeNode node, int k){
+                 //search of the element using DFS approach: if it exists => true
                 if(node == null){
                         return false;
                 } else if (node.var == k){
@@ -67,6 +68,21 @@ class Tree{
                         return DFS(node.left, k) || DFS(node.right, k);
                  }
         }
+        public static boolean BFS(TreeNode node, int k){
+                //search of the element using BFS approach: if it exists => true
+                if (node==null) return false;
+        PriorityQueue<TreeNode> queue = new PriorityQueue<TreeNode>() ;
+                 queue.clear();
+                queue.add(node);
+                while(!queue.isEmpty()){
+                        TreeNode tmp = queue.remove();
+                        if (tmp.var==k) return true;
+                        if (tmp.left!=null) queue.add(tmp.left);
+                        if (tmp.right!=null) queue.add(tmp.right);
+                }
+                return false;
+        }
+
         
          public static void main(String...args){
                 TreeNode node = new TreeNode(null, null, 5);
