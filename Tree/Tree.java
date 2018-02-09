@@ -58,6 +58,16 @@ class Tree{
                 else System.out.println("Result:"+tmp.var);
         }
         
+         public static boolean DFS(TreeNode node, int k){
+                if(node == null){
+                        return false;
+                } else if (node.var == k){
+                        return true;
+                 } else {
+                        return DFS(node.left, k) || DFS(node.right, k);
+                 }
+        }
+        
          public static void main(String...args){
                 TreeNode node = new TreeNode(null, null, 5);
                 TreeNode node1 = new TreeNode(null, null, 8);
